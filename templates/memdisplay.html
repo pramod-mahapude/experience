@@ -1,0 +1,77 @@
+{% extends 'adminbase.html' %}
+
+{% block content %}
+
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Members</h2>
+				<h6>...</h6>
+			</div>
+	<div class="generaltext">
+				
+	<div class="container">
+	
+		<div class="subcontainer">
+			<div class="col-md-12 chrt_grid">
+				<!--h3-->
+	<font color="white" size="4">	
+<table border='2' color="white"> 
+	
+	<!--header id="head" class="secondary"></header>
+
+	<div class="container"-->
+		<!--ol class="breadcrumb">
+			<li><a href='/fileup'>Add File</a></li>
+			<li class="active">Right Sidebar</li>
+		</ol-->
+		
+										
+	<tr>
+		<th>&nbsp;&nbsp;No.&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;Name&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;Email&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;Contact No.&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;Class&nbsp;&nbsp;</th>
+		
+		</tr>
+	{% set count=1 %}
+	{% for member in members%}
+		<tr>
+			<td>&nbsp;&nbsp;{{count}}&nbsp;&nbsp;</td>
+			<td>&nbsp;&nbsp;{{member.name}}&nbsp;&nbsp;</td>
+			<td>&nbsp;&nbsp;{{member.email}}&nbsp;&nbsp;</td>
+			<td>&nbsp;&nbsp;{{member.phoneno}}&nbsp;&nbsp;</td>
+			<td>&nbsp;&nbsp;{{member.division}}&nbsp;&nbsp;</td>
+			</tr>
+		{% set count=count+1 %}
+	{% endfor %}
+</table>
+
+							
+						</div>
+
+			
+			<!-- Sidebar -->
+			<!--aside class="col-md-4 sidebar sidebar-right">
+
+				<!div class="row widget">
+					<div class="col-xs-12">
+					
+						<h4><marquee direction="up" scrolldelay='500'><center>Lorem ipsum dolor sit</center></marquee></h4>
+						<br>
+						
+						<h4><marquee direction="up" scrolldelay='500'><center>Lorem </center></marquee></h4>
+					
+					</div>
+				</div>
+				
+
+			</aside-->
+			<!-- /Sidebar -->
+		</div>
+		</div>
+		</div>
+			</div>
+		</div>
+		<!-- /container -->
+{% endblock content %}

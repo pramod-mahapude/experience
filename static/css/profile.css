@@ -1,0 +1,22 @@
+#profile{
+	float:right;
+	margin-top:-100px;
+	margin-bottom:30px;
+	background-color:#800080;
+	width:100px; 
+	height:100px;
+}
+
+#outlet{
+	border-bottom:1px;
+	border-style:dotted;
+	margin-top:10px;
+
+}
+
+#borderoutlet{
+	border-bottom:1px;
+	border-style:dotted;
+	margin-top:10px;
+	color: #fff;
+}

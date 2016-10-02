@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Experiences</h2>
+				<h6>...</h6>
+				
+			</div>
+	<div class="generaltext">
+				
+	<div class="container">
+	
+		<div class="subcontainer">
+			<div class="col-md-12 chrt_grid">
+				<!--h3-->
+	<font color="white" size="4">	
+<table border=2> 
+	<tr>
+		<th>Sr.No</th>
+		<th>File Name</th>
+		<th>Company Name</th>
+		<th>Name</th>	
+		<th>file key</th>
+	</tr>
+	{% set count=1 %}
+	{% for fileinfo in fileinfo%}
+		<tr>
+			<td>{{count}}</td>
+			<td>{{fileinfo.filename}}</td>
+			<td>{{fileinfo.company.get().companyname}}</td>
+			<td>{{fileinfo.name}}</td>
+			<td>{{fileinfo.key.id()}}</td>
+			</font>
+			<td>
+			<font color="black" size="4">
+			<form action='/download' method='post'>
+					<input type='submit' value='Download'>
+					<input type='hidden' name='file_key' value='{{fileinfo.file_key}}'/>
+				</form></td>
+				</font>
+				
+			<td><font color="black" size="4">
+			<form action='/comment?filekey={{fileinfo.key.id()}}&cname={{fileinfo.company.get().key.id()}}' method='get'>
+					<input type='hidden' name='filekey' value='{{fileinfo.key.id()}}'/>
+					<input type='hidden' name='cname' value='{{fileinfo.company.get().key.id()}}'/>
+					<input type='submit' value='Comment'>
+				</form></td>
+				</font>
+		</tr>
+		{% set count=count+1 %}
+	{% endfor %}
+</table>
+
+</div>
+					
+									
+							
+						</div>
+			<div>
+			
+		
+			<!-- /Article -->
+			
+			<!-- Sidebar -->
+			</div>
+			</div>
+		</div>
+	</div>	<!-- /container -->
+{% endblock content %}

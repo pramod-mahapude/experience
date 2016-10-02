@@ -1,0 +1,20 @@
+
+							<form action='{{url}}' method='post' enctype='multipart/form-data'>
+								<div class="top-margin">
+								
+								<label>	File</label>
+								<input type='file' name='filename'>
+								</div>
+								
+								<div class="top-margin">
+								
+								<label>	Company Name </label>
+									<select name='cname'>
+									{% for cnames in cnames%}
+									<option value='{{cnames.key.id()}}' selected>{{cnames.companyname}}</option>
+									{% endfor %}
+									</select>
+								</div>
+					
+									<input type='submit' value='Submit'>
+							</form>

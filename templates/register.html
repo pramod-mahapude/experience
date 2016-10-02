@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>REGISTRATION</h2>
+				<h6>Join With us...</h6>
+			</div>
+	<div class="generaltext">
+				
+	<div class="container">
+	<div class="contact">
+		<div class="col-md-6 contact-top">
+			<!--h3-->
+				<form method='post' action='/register'>
+								<font color="white" size="4">	
+
+							<div>
+								<span> Name<label>:</label></span>
+									<input type="text" class="form-control" placeholder="Name" name="name">
+								<br>
+							</div>
+							
+							<div class="clearfix"> </div>
+							 
+							 <div>
+								<span>Phone No<label>:</label></span>
+								<input type="text" class="form-control"  placeholder="1234567890" name="phoneno" >
+								<br>
+							 </div>
+							 <div class="clearfix"> </div>
+							 <div>
+								 <span>Email Address<label>:</label></span>
+									<input type="email" class="form-control" placeholder="anubhav@gmail.com" name="email" required="">
+								<br>
+							 </div>
+							 <div class="clearfix"> </div>
+					 		<div>
+								 <span>Class<label>:</label></span>
+								 <input type='radio' name='division' value='MCS' checked>MCS
+                   
+								 <input type='radio' name='division' value='MCA' >MCA
+								
+								 <br>
+							</div>
+							 <div class="clearfix"> </div>
+							 
+							 <input type="submit" value="Submit">
+					</font>
+						</form>
+					
+						
+			
+			
+
+		</div>
+	</div>	<!-- /container -->
+		</div>
+</div>		
+	<svg id="bigTriangleShadow" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+			<path id="trianglePath1" d="M0 0 L50 100 L100 0 Z"></path>
+			<path id="trianglePath2" d="M50 100 L100 40 L100 0 Z"></path>
+		</svg>
+
+{% endblock content %}

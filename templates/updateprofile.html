@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form method='post' action='/updateprofile'>
+	Name:
+	<textarea name="name" rows="3" cols="30">{{member.name}}</textarea><br><br>
+	Email:
+	<textarea type="email" name="email" rows="1" cols="30">{{member.email}}</textarea><br><br>
+	Phone No:
+	<textarea type="number" name="phoneno" rows="1" cols="20">{{member.phoneno}}</textarea><br><br>
+	Class:
+	<input type='radio' name='division' value='MCS' checked>MCS
+    <input type='radio' name='division' value='MCA' >MCA
+	<input type='hidden' name='memberid' value='{{member.key.id()}}'/>
+	<input type="submit" value="Submit">
+
+
+
+
+
+</form>
+
+{% endblock content %}

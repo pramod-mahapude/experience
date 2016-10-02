@@ -1,0 +1,43 @@
+{% extends 'adminbase.html' %}
+
+{% block content %}
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Share ur experiens</h2>
+				<h6>...</h6>
+			</div>
+<div class="generaltext">
+				
+	<div class="container">
+	<div class="contact">
+		<div class="col-md-6 contact-top">
+		<div class="chrty">
+			
+			<form action='{{url}}' method='post' enctype='multipart/form-data'>
+			<font color="white" size="4">File
+			<input type='file' name='filename'><br><br>
+			Company	
+					<font color="black" size="4">
+					<select name='cname'></font>
+					{% for cnames in cnames%}
+					<option value='{{cnames.key.id()}}' selected>{{cnames.companyname}}</option>
+									
+					{% endfor %}
+					</select>
+					</font>
+					<center>
+					<div class="row">
+							
+							<div class="col-sm-12 text-right">
+								<input class="btn btn-action" type="submit" value="Submit">
+							</div>
+							
+					</div>
+					</center>
+					</form>	
+		</div>	
+			
+	</div>
+</div>
+			<!-- /container -->
+{% endblock content %}

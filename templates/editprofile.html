@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action='updateprofile' method='get' enctype='multipart/form-data'>
+
+Name:{{member.name}}&nbsp;&nbsp;&nbsp;
+<!input type="Reset" value="Reset">&nbsp;&nbsp;&nbsp;
+<!input type="submit" value='Edit'><br><br>
+Email:{{member.email}}&nbsp;&nbsp;&nbsp;
+<!input type="Reset" value="Reset">&nbsp;&nbsp;&nbsp;
+<!input type="submit" value='Edit'><br><br>
+Contact:{{member.phoneno}}&nbsp;&nbsp;&nbsp;
+<!input type="Reset" value="Reset">&nbsp;&nbsp;&nbsp;
+<!input type="submit" value='Edit'><br><br>
+Division:{{member.division}}&nbsp;&nbsp;&nbsp;
+<!input type="Reset" value="Reset">&nbsp;&nbsp;&nbsp;
+<input type="submit" value='Edit'><br><br>
+<!input type="submit" value='Edit'><br><br>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

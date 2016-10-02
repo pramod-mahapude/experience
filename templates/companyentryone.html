@@ -1,0 +1,33 @@
+{% extends 'adminbase.html' %}
+
+{% block content %}
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Company Details</h2>
+				<h6>add new company here...</h6>
+			</div>
+	<div class="generaltext">
+				
+	<div class="container">
+	<div class="contact">
+		<div class="col-md-6 contact-top">
+<font color="white" size="4">	
+
+<form method='get' action='/companyentry' >
+
+<div>						
+<span>Is Company with Criteria?  <label>:</label></span>
+<input type= "radio"  name = "criteria" value="No">No Criteria
+<input type= "radio"  name = "criteria" value="Yes">Criteria
+<br><br><br>
+</div>
+</font>
+<input type='submit' value='Submit'>
+
+</form>
+</div>
+	</div>	<!-- /container -->
+		</div>
+</div>	
+
+{% endblock content %}

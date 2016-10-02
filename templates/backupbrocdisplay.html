@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+	<tr>
+		<th>No.</th>
+		<th>Name</th>
+		<th>Division</th>
+		<th>Phn No</th>
+		<th>Image</th>
+		<th>email</th>
+	</tr>
+	{% set count=1 %}
+	{% for studentinfo in studentinfo %}
+		<tr>
+			<td>{{count}}</td>
+			<td>{{studentinfo.name}}</td>
+			<td>{{studentinfo.division}}</td>
+			<td>{{studentinfo.phoneno}}</td>
+			<td><img src="static/img/brochureimages/{{studentinfo.key.id()}}.jpg" width='30' height='30'/></td>
+			<td>{{studentinfo.email}}</td>
+			<td><!form action='/download' method='post'>
+					<!input type='submit' value='Download'>
+					<!input type='hidden' name='file_key' value='{{studentinfo.file_key}}'/>
+				<!/form></td>
+		</tr>
+		<!img src="anubhavapp/brochureimages/1.jpg" width="30" height="30" alt="test/>
+		{% set count=count+1 %}
+	{% endfor %}
+</table>
+{% endblock content %}

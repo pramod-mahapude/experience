@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Comment</h2>
+				<h6>...</h6>
+			</div>
+	<div class="generaltext">
+
+<div class="container">
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+				
+	
+<form action='/comment' method='post'>
+
+<div class="row">
+							<div class="col-sm-12">
+								<textarea name='comment' placeholder="Comment here..." class="form-control" cols='50', rows='5' required></textarea>
+							</div>
+						</div>
+
+	<!--textarea name='comment' cols='50', rows='5' required></textarea-->
+	<input type='hidden' name='commenter' value='{{member.name}}'/>
+	<input type='hidden' name='company' value='{{company.key.id()}}'/>
+	<input type='hidden' name='fileid' value='{{uploadfile.key.id()}}'/>  
+	<input type='hidden' name='memberid' value='{{member.key.id()}}'/>  
+			<div class="row">
+							<br><br>
+							<div class="col-sm-6 text-right">
+								<input class="btn btn-action" type="submit" value="Comment">
+							</div>
+			</div>
+	<br><br><!--input type='submit' value='Comment'/-->
+</form>
+
+{% for comment in key_comments %}
+<font color="white" size="4">	
+<br>
+Name  :{{comment.name}}<br>
+Comment  :{{comment.comment}}<br><br>
+</font>
+{% if(comment.name == member.name):%}
+	<form action='/edit' method='post'>
+	
+		<div class="row">
+							
+							<div class="col-sm-8 text-right">
+								<input class="btn btn-action" type="submit" value='Edit Comment'">
+							</div>
+		</div>
+		<!--div id="inputbutton"><input type='submit' value='Edit Comment'></div-->
+		<input type='hidden' name='edit_key' value='{{comment.comment}}'/>
+		<input type='hidden' name='file_key' value='{{uploadfile.file_key}}'/>
+		<input type='hidden' name='file_id' value='{{uploadfile.key.id()}}'/>
+		<input type='hidden' name='cname' value='{{comment.name}}'/>
+		<input type='hidden' name='cid' value='{{comment.key.id()}}'/>
+		<input type='hidden' name='company' value='{{company.key.id()}}'/>
+		<input type='hidden' name='memberid' value='{{member.key.id()}}'/>
+		
+	</form>	
+	<form action='/delete' method='post'>
+	<div class="row">
+							
+							<div class="col-sm-10 text-right">
+								<input class="btn btn-action" type="submit" value='Delete Comment'">
+							</div>
+	</div>
+		<!--input type='submit' value='Delete Comment'-->
+		<input type='hidden' name='edit_key' value='{{comment.comment}}'/>
+		<input type='hidden' name='file_key' value='{{uploadfile.file_key}}'/>
+		<input type='hidden' name='file_id' value='{{uploadfile.key.id()}}'/>
+		<input type='hidden' name='cname' value='{{comment.name}}'/>
+		<input type='hidden' name='cid' value='{{comment.key.id()}}'/>
+		<input type='hidden' name='company' value='{{company.key.id()}}'/>
+		<input type='hidden' name='memberid' value='{{member.key.id()}}'/>
+		
+	</form>
+	
+	{% endif %}
+	<div id="borderoutlet"></div>	
+
+{% endfor %}
+</div>
+	</div>	<!-- /container -->
+		</div>
+</div>		
+		
+{% endblock content %}

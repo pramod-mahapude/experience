@@ -1,0 +1,25 @@
+class CommentEditHandler(basehandler.BaseHandler):
+    def get(self):
+        topicid=self.request.get('topicid')
+        topic = model.Topic.get_by_id(int(topicid))
+        subject1=self.request.get('subject')
+        topic1=self.request.get('topic')
+        commenter=self.request.get('commenter')
+        commenttext=self.request.get('commenttext')
+        comments = model.Comment.query(model.Comment.tid==topic.key).order(-model.Comment.creationdate)
+        self.render_template('edit.html',users=users,topic=topic,subject1=subject1,topic1=topic1,commenter=commenter,commenttext=commenttext,key_comments=comments)
+	
+    def post(self):
+        user=users.get_current_user()
+        if user is None:
+            self.abort(403)	
+        commentid=self.request.POST.get('commentid')
+        commentkey = model.Comment.get_by_id(int(commentid))
+        commenter=commentkey.commenter
+        commenttext=commentkey.commenttext
+        topicid=self.request.POST.get('topicid')
+        topickey = model.Topic.get_by_id(int(topicid))
+        subject=self.request.POST.get('subject')
+        topic=self.request.POST.get('topic')
+        commentkey.key.delete()
+        self.redirect('/edit?commenter='+commenter+'&commenttext='+commenttext+'&topicid='+topicid+'&subject='+subject+'&topic='+topic)

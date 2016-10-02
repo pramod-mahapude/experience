@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Comment</h2>
+				<h6>...</h6>
+			</div>
+	<div class="generaltext">
+
+<div class="container">
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+				
+	
+<form action='/comment' method='post'>
+
+<div class="row">
+							<div class="col-sm-12">
+								<textarea name='comment' placeholder="edit your Comment here..." class="form-control" rows="9"></textarea>
+							</div>
+						</div>
+
+	<input type='hidden' name='fileid' value='{{file.key.id()}}'/>
+	<input type='hidden' name='commenter' value='{{commenter}}'/>
+	<input type='hidden' name='company' value='{{company}}'/>
+	<input type='hidden' name='memberid' value='{{member}}'/>
+	<div class="row">
+							<br><br>
+							<div class="col-sm-6 text-right">
+								<input class="btn btn-action" type="submit" value="Comment">
+							</div>
+			</div>		
+</form>
+
+{% for comment in key_comments %}
+		
+				<h3>{{comment.commenter}}</h3> <br>
+			{{comment.commenttext}}
+			
+	{% endfor %}
+{% endblock content %}

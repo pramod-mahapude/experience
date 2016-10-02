@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="clearfix"></div>
+			<div class="banner two">
+				<h2>Broucher</h2>
+				<h6>connecting people...</h6>
+			</div>
+	<div class="generaltext">
+				
+	<div class="container">
+	<div class="contact">
+		<div class="col-md-6 contact-top">
+<font color="white" size="4">	
+
+Information For Brochure<br><br>
+<b>Name:
+{{member.name}}<br>
+Class:
+{{member.division}}<br>
+Email:
+{{member.email}}<br>
+Phone no:
+{{member.phoneno}}<br>
+</b>
+</font>	
+<form action='{{url}}' method='post' enctype='multipart/form-data'>
+<input type="hidden" name="name" value='{{member.name}}'>
+<input type="hidden" name="email" value='{{member.email}}'>
+<input type="hidden" name="phoneno" value='{{member.phoneno}}'>
+<input type="hidden" name="division" value='{{member.division}}'>
+<input type="hidden" name = "stud_key" value={{member.key}}>
+<b>
+<font color="white" size="4">	
+Enter Marks:</font><br><br>
+<div>
+<span> <font color="white" size="4">	
+10 <label>:</label></span>
+									
+<input type= "text"  class="form-control" name = "tenth" required> 
+</font>
+</div>
+<div class="clearfix"> </div>
+<div>							
+<span> <font color="white" size="4">	
+12<label>:</label></font></span>
+		<input type= "text"  class="form-control" name = "twelth" required>
+</div>		
+<div class="clearfix"> </div>
+<div>							
+<span> <font color="white" size="4">	
+BCS
+</font><label>:</label></span>
+		<input type= "text" class="form-control" name = "grad" required>
+</div>		
+<div class="clearfix"> </div>
+
+<div>							
+	<span><font color="white" size="4">	
+Mcs/MCA </font><label>:</label></span>
+	<input type= "text" class="form-control" name = "pgrad" required>
+</div>
+
+<div>							
+<span> <font color="white" size="4">	
+Sem1 Project</font><label>:</label></span>
+		<input type= "text" class="form-control" name = "proj1" required>
+</div>
+<div class="clearfix"> </div>
+							
+<div>
+<span> <font color="white" size="4">	
+Sem2 Project</font><label>:</label></span>
+		<input type= "text"  class="form-control" name = "proj2" required>
+</div>		
+<div class="clearfix"> </div>
+<div>							
+<span> <font color="white" size="4">	
+Sem3 Project(only for MCA students)</font><label>:</label></span>
+	    <input type= "text" class="form-control" name = "proj3">
+</div>
+<div class="clearfix"> </div>
+
+
+<div class="clearfix"> </div>
+<div>							
+<span>
+<font color="white" size="4">	
+File:</font></label></span><input type='file' name='filename' required><br><br>
+</div>
+<div class="clearfix"> </div>
+							
+<input type="Reset" value="Reset">&nbsp;&nbsp;&nbsp;
+<input type="submit" value='Submit'></b>
+</form>
+
+
+</div>
+	</div>	<!-- /container -->
+		</div>
+</div>	
+</div>	
+{% endblock content %}

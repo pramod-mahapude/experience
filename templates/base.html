@@ -1,0 +1,108 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> अनुभव </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Kindness Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link href="static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="static/css/style.css" rel='stylesheet' type='text/css' />	
+<link href="static/css/profile.css" rel='stylesheet' type='text/css' />
+
+<script src="static/js/jquery.min.js"> </script>
+<!--webfonts-->
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700|Playball' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
+
+
+<!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<!--start-home-->
+	<div id="home" class="header">
+		<div class="header-bottom">
+			<div class="container">
+				<div class="logo">
+					<a href=""><h1>Sharing<span>अनुभव</span></h1></a>
+				</div>
+				<span class="menu"></span>
+				<div class="top-menu">
+				<ul class="cl-effect-16">
+						<li><a class="active" href="/index" data-hover="HOME">Home</a></li> 
+						<li><a href="/about" data-hover="About">About</a></li>
+						<li><a href="/contact" data-hover="CONTACT">Contact</a></li>
+						
+					{% block elements %}
+                            {% if users.get_current_user() %}
+									<li><a href="/fileup">Share</a></li>
+					
+
+							   {% else %}
+									<li><a href= '/register'>Join</a></li>
+					
+								{% endif %}
+                            
+                    {% endblock elements %}
+                    
+					{% block trailelement %}
+                            {% if users.get_current_user() %}
+									 <li><a href= '/filedisplay'> Experience</a></li>
+									 <li><a href="/brochure">Brochure</a></li>
+									
+							   {% endif %}
+                            
+                    {% endblock trailelement %}
+					
+					{% block navelements %}
+                            {% if users.get_current_user() %}
+                                <li><a href='{{users.create_logout_url('/')}}'>Logout</a></li>
+                            {% else %}
+                                <li><a href='{{users.create_login_url('/')}}'>Login</a></li>
+                            {% endif %}
+                            
+                    {% endblock navelements %}
+         
+						
+						
+						<div class="clearfix"> </div>
+					</ul>
+				</div>
+				
+				<!-- script for menu -->
+				<script>
+				$( "span.menu" ).click(function() {
+				  $( ".top-menu" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<!-- script for menu -->
+				<!--div class="clearfix"></div-->
+			</div>
+		</div>
+		</div>
+		
+		{% block content %}
+        {% endblock content %}
+        
+	

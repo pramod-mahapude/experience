@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="wrapper">
+		<div id="bgslideshow">  
+
+
+
+	<label>{{commenter}}</label><br>
+	<form action='/comment' method='post'>
+		
+		<font color='black'>
+		<textarea  name='comment' cols='50', rows='5' required>{{commenttext}}</textarea>
+		</font>
+		
+		
+			<input type='hidden' name='topicid' value='{{topic.key.id()}}'/>
+			<input type='hidden' name='cname' value='{{commenter}}'/>
+			<input type='hidden' name='subject' value='{{subject1}}'/>
+			<input type='hidden' name='topic' value='{{topic1}}'/>
+			<br><br><input type='submit' value='Comment' class="btn btn-primary"/>
+			
+	</form>
+	<br><br>
+
+   
+            
+        
+
+	{% for comment in key_comments %}
+		
+				<h3>{{comment.commenter}}</h3> <br>
+			{{comment.commenttext}}
+			
+	{% endfor %}
+</div>
+</div>
+{% endblock content %}

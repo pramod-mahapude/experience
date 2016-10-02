@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='post' action='/companydetails'>
+Company Name <input type= "text"  name = "cname"> 
+<br><br> 
+Criteria <input type= "radio"  name = "criteria" value="60">60% 
+<input type= "radio"  name = "criteria" value="no">No Criteria
+<br><br>
+Stipend<input type= "text"  name = "stipend"> 
+<br><br>
+Number Of Rounds<input type= "number"  name = "noofrounds">
+<br><br>
+Selected Candidates<input type= "number"  name = "noofselectedcandidates">
+<br><br>
+
+<input type='submit' value='Submit'>
+</form>
+
+{% endblock content %}

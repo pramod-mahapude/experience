@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+	<div class='row'>
+		<div class='col-md-3'>
+		</div>
+	</div>
+	<div class='row'>
+	<div class='col-md-6'>
+		<div align='left'>
+			{% for company in companies %}
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">{{company.comapanyname}}</h3>
+					</div>
+					<div class="panel-body">{{company.noofrounds}}<br>{{company.stipend}}<br>{{company.criteria}}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	</div>
+	<div class='row'>
+	<div class='col-md-3'>
+	</div>
+	</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='post' action='/addcompany'>
+Company Name <input type= "text"  name = "name"> 
+<br><br> 
+Criteria <input type= "text"  name = "criteria"> 
+<br><br>
+Stipend<input type= "text"  name = "stipend"> 
+<br><br>
+Number Of Rounds<input type= "number"  name = "noofrounds">
+<br><br>
+Selected Candidates<input type= "number"  name = "noofselectedcandidates">
+<br><br>
+
+<input type='submit' value='Submit'>
+</form>
+<br
+{% endblock content %}
