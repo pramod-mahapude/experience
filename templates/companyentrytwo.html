@@ -1,6 +1,114 @@
 {% extends 'adminbase.html' %}
 
 {% block content %}
+<script>
+	function validate()
+	{
+		var cname = document.getElementById("cname").value;
+		if(cname==='')
+		{
+			alert('Please Enter Compnay Name');
+			document.getElementById('cname').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('cname').style.borderColor = "green";
+		}
+		var cnameVal=/^([A-Za-z])/;
+	
+		if(!(cname).match(cnameVal))
+		{
+			alert("invalid Compnay name");
+			 document.getElementById('cname').style.borderColor = "red";
+
+			return false;	
+		}	
+		
+		var stipend=document.getElementById("stipend").value;
+		if(stipend==='')
+		{	
+			alert('Please Enter Stipend');
+			document.getElementById('stipend').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('stipend').style.borderColor = "green";
+		}
+		var noround=document.getElementById("noround").value;
+		if(noround==='')
+		{	
+			alert('Please Enter No Of Rounds');
+			document.getElementById('noround').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('noround').style.borderColor = "green";
+		}
+		
+		var noscandidate=document.getElementById("noscandidate").value;
+		if(noscandidate==='')
+		{
+			alert('Please Enter No Of Student Selected by this Compnay');
+			document.getElementById('noscandidate').style.borderColor = "red";
+			return false;
+		}else
+		{
+        document.getElementById('noscandidate').style.borderColor = "green";
+		}
+		
+		var ten=document.getElementById("10th").value;
+		if(ten==='')
+		{	
+			alert('Please Enter 10th Percentage Criteria');
+			document.getElementById('10th').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('10th').style.borderColor = "green";
+		}
+		var twel=document.getElementById("12th").value;
+		if(twel==='')
+		{	
+			alert('Please Enter 12th Percentage Criteria');
+			document.getElementById('12th').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('12th').style.borderColor = "green";
+		}
+		
+		var grd =document.getElementById("grd").value;
+		if(grd==='')
+		{	
+			alert('Please Enter Graduation Percentage Criteria');
+			document.getElementById('grd').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('grd').style.borderColor = "green";
+		}
+		var pg=document.getElementById("pg").value;
+		if(pg==='')
+		{	
+			alert('Please Enter PostGraduation Percentage Criteria');
+			document.getElementById('pg').style.borderColor = "red";
+			return false;
+		}else
+		{
+			document.getElementById('pg').style.borderColor = "green";
+		}
+		
+		return true;
+	}
+	function isNumberKey(evt)
+	{
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+    return true;
+}
+</script>
+
 <div class="clearfix"></div>
 			<div class="banner two">
 				<h2>Company Details</h2>
@@ -16,58 +124,58 @@
 <form method='post' action='/companyentry'>
 <div>
 <span>Company Name <label>:</label></span>
-			<input type= "text"  name = "cname"> 
+			<input type="text"  class="cname" id="cname"  pattern="[a-zA-Z]{2,}"  placeholder="Enter Company Name" name ="cname" > 
 </div>
 <div class="clearfix"> </div>
 
 <div>
 <span>Stipend<label>:</label></span>
-	<input type= "text" class="form-control" name = "stipend"> 
+	<input type= "text" id="stipend" size=10 maxlength=5 class="form-control onlynumeric" name = "stipend" onkeypress='return isNumberKey(event)'> 
 </div>
 <div class="clearfix"> </div>
 
 <div>
 <span>Number Of Rounds<label>:</label></span>
-		<input type= "number" class="form-control" name = "noofrounds">
+		<input type= "number"  min="1" max="10" class="form-control onlynumeric" id="noround" name = "noofrounds">
 </div>
 <div class="clearfix"> </div>
 		
 <div>
 <span>	Number of selected Candidates<label>:</label></span>
-		<input type= "number" class="form-control"  name = "noofselectedcandidates"><br>
+		<input type= "number" min="0" max="500" class="form-control onlynumeric" id="noscandidate" name = "noofselectedcandidates"><br>
 </div>
 <div class="clearfix"> </div>
 
 Marks Details:
 <div>
 <span>10th <label>:</label></span>
-	<input type="number"class="form-control" name="tenth">
+	<input type="number" min="35" max="100" class="form-control onlynumeric" id="10th" placeholder="Enter 10th Percentage Criteria" name="tenth">
 </div>
 <div class="clearfix"> </div>
 
 	
 <div>
 <span>12th<label>:</label></span>
-	<input type="number"class="form-control" name="twelth">
+	<input type="number" min="35" max="100" class="form-control onlynumeric" id="12th" placeholder="Enter 12th Percentage Criteria" name="twelth">
 </div>
 <div class="clearfix"> </div>
 
 	
 <div>
 <span>Graduation<label>:</label></span>
-		<input type="number" class="form-control" name="grad">
+		<input type="number" min="35" max="100" class="form-control onlynumeric" id="grd" placeholder="Enter Gradutaion Percentage Criteria" name="grad">
 </div>
 <div class="clearfix"> </div>
 		
 <div>
 <span>Post Graduation<label>:</label></span>
-		<input type="number"class="form-control" name="pgrad">
+		<input type="number" min="35" max="100" class="form-control onlynumeric" id="pg" placeholder="Enter Post Gradutaion Percentage Criteria" name="pgrad">
 
 </div>
 <div class="clearfix"> </div>
 							 
 <input type="hidden" name="criteria" value="yes">
-<input type='submit' value='Submit'>
+<input type='submit' value='Submit' onclick=" return validate();">
 </form>
 </div>
 	</div>	<!-- /container -->

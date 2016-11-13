@@ -1,6 +1,14 @@
 {% extends 'adminbase.html' %}
 
 {% block content %}
+<script>
+	function atLeastOneRadio()
+	{
+		return ($('input[type=radio]:checked').size() > 0);
+	}
+		
+	
+</script>
 <div class="clearfix"></div>
 			<div class="banner two">
 				<h2>Company Details</h2>
@@ -17,12 +25,12 @@
 
 <div>						
 <span>Is Company with Criteria?  <label>:</label></span>
-<input type= "radio"  name = "criteria" value="No">No Criteria
-<input type= "radio"  name = "criteria" value="Yes">Criteria
+<input type= "radio"  id="r1" name = "criteria" value="No">No Criteria
+<input type= "radio"  id="r2" name = "criteria" value="Yes">Criteria
 <br><br><br>
 </div>
 </font>
-<input type='submit' value='Submit'>
+<input type='submit' value='Submit' onclick=" return atLeastOneRadio();">
 
 </form>
 </div>

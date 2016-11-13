@@ -1,6 +1,72 @@
 {% extends 'adminbase.html' %}
 
 {% block content %}
+<script type="text/javascript">
+jQuery(document)
+function validate()
+{
+	var cname = document.getElementById("cname").value;
+	if(cname==='')
+	{
+		alert('Please Enter Compnay Name');
+		document.getElementById('cname').style.backgroundColor = "#B33B3B";
+        return false;
+    }else
+    {
+        document.getElementById('cname').style.backgroundColor = "#A6F481";
+    }
+    var cnameVal=/^([A-Za-z])/;
+	
+	if(!(cname).match(cnameVal))
+	{
+	  alert("invalid name");
+	  document.getElementById('cname').style.backgroundColor = "#B33B3B";
+	  return false;	
+    }else{document.getElementById('cname').style.backgroundColor = "#A6F481";}
+    
+	var stipend=document.getElementById("stipend").value;
+	if(stipend==='')
+	{
+		alert('Please Enter Stipend');
+		document.getElementById('stipend').style.backgroundColor = "#B33B3B";
+        return false;
+    }else
+    {
+        document.getElementById('stipend').style.backgroundColor = "#A6F481";
+    }
+	
+	var noround=document.getElementById("noround").value;
+	if(noround==='')
+	{
+		alert('Please Enter No Of Rounds');
+		document.getElementById('noround').style.backgroundColor = "	";
+        return false;
+    }else
+    {
+        document.getElementById('noround').style.backgroundColor = "#A6F481";
+    }
+	
+	var noscandidate=document.getElementById("noscandidate").value;
+	if(noscandidate==='')
+	{
+		alert('Please Enter No Of Student Selected by this Compnay');
+		document.getElementById('noscandidate').style.backgroundColor = "#B33B3B";
+        return false;
+    }else
+    {
+        document.getElementById('noscandidate').style.backgroundColor = "#A6F481";
+    }
+	return true;
+}
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+</script>
+
+
 <div class="clearfix"></div>
 			<div class="banner two">
 				<h2>Company Details</h2>
@@ -14,29 +80,27 @@
 <font color="white" size="4">	
 
 <form method='post' action='/companyentry'>
-
-						
 <div>
 <span>Company Name <label>:</label></span>
-	<input type= "text" class="form-control" name = "cname" required> 
+	<input type= "text" class="form-control cname" id="cname"  pattern="[a-zA-Z]{2,}" placeholder="Enter Company Name" name = "cname"> 
 </div>
 <div class="clearfix"> </div>
 							
 <div>
 	<span>Stipend<label>:</label></span>
-	<input type= "text" class="form-control" name = "stipend"> 
+	<input type= "text" size=10 maxlength=5 id="stipend" class="form-control" name = "stipend" onkeypress='return isNumberKey(event)'> 
 </div>
 <div class="clearfix"> </div>
 							
 <div>
 <span>Number Of Rounds<label>:</label></span>
-<input type= "number" class="form-control" name = "noofrounds" required>
+<input type= "number" min="1" max="10"  id="noround"class="form-control" name = "noofrounds" onkeypress='return isNumberKey(event)'>
 </div>
 <div class="clearfix"> </div>
 <div>
 <span>Number of selected Candidates<label>:</label></span>
 
-<input type= "number" class="form-control" name = "noofselectedcandidates"><br><br>
+<input type= "number" min="0" max="500" id="noscandidate" class="form-control" name = "noofselectedcandidates" onkeypress='return isNumberKey(event)'><br><br>
 </div>
 <div class="clearfix"> </div>
 							
@@ -47,8 +111,8 @@
 <input type="hidden" name="twelth" value="None">
 <input type="hidden" name="grad" value="None">
 <input type="hidden" name="pgrad" value="None">
-<input type='submit' value='Submit'>
-</form>
+<input type='submit' value='Submit' onclick=" return validate();">
+</form> 	
 </div>
 	</div>	<!-- /container -->
 		</div>

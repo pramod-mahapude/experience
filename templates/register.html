@@ -2,6 +2,63 @@
 
 {% block content %}
 
+<script>
+	
+function validate()
+{
+	var name = document.getElementById("name").value;
+	if(name==='')
+	{
+		alert('Please Enter Name');
+		document.getElementById('name').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('name').style.borderColor = "green";
+    }
+    var nameVal=/^([A-Za-z])/;
+	if(!(name).match(nameVal))
+	{
+	  alert("invalid name");
+	  return false;	
+    }
+    var phoneno=document.getElementById("phoneno").value;
+	var email=document.getElementById("phoneno").value;
+	if(phoneno==='')
+	{
+		alert('Please Enter Phone No');
+		document.getElementById('phoneno').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('phoneno').style.borderColor = "green";
+    }
+	var phoneVal=/^\d{10}$/;
+	if(!(phoneno).match(phoneVal))
+    {
+		alert("Phone no must contain 10 digits");
+		return false;
+	}
+	
+	var email=document.getElementById("email").value;
+	if(email==='')
+	{
+		alert('Please Enter EmailID');
+		document.getElementById('email').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('email').style.borderColor = "green";
+    }
+    var emailReg=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(!(email).match(emailReg))
+	{
+	alert("Invalid Email...!!!!!!");
+	return false;
+	}
+
+}
+</script>
 <div class="clearfix"></div>
 			<div class="banner two">
 				<h2>REGISTRATION</h2>
@@ -18,7 +75,7 @@
 
 							<div>
 								<span> Name<label>:</label></span>
-									<input type="text" class="form-control" placeholder="Name" name="name">
+									<input type="text" class="form-control name" id="name" placeholder="Name" name="name">
 								<br>
 							</div>
 							
@@ -26,13 +83,14 @@
 							 
 							 <div>
 								<span>Phone No<label>:</label></span>
-								<input type="text" class="form-control"  placeholder="1234567890" name="phoneno" >
+								
+								<input type="tel" class="form-control phoneno"  id="phoneno"  name="phoneno"  maxlength=10>
 								<br>
 							 </div>
 							 <div class="clearfix"> </div>
 							 <div>
 								 <span>Email Address<label>:</label></span>
-									<input type="email" class="form-control" placeholder="anubhav@gmail.com" name="email" required="">
+									<input type="email" class="form-control email" id="email" placeholder="anubhav@gmail.com" name="email">
 								<br>
 							 </div>
 							 <div class="clearfix"> </div>
@@ -46,7 +104,7 @@
 							</div>
 							 <div class="clearfix"> </div>
 							 
-							 <input type="submit" value="Submit">
+							 <input type="submit" value="Submit" onclick=" return validate();" >
 					</font>
 						</form>
 					

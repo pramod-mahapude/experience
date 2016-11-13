@@ -35,7 +35,7 @@ class RegisterHandler(basehandler.BaseHandler):
 			user=model.Member(name=name,email=email,phoneno=phoneno,type=type,division=division)
 			user.put()
 			self.redirect('/')
-		
+	
 class LoginHandler(basehandler.BaseHandler):	
 	def get(self):
 		user=users.get_current_user()

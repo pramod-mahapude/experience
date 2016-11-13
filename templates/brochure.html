@@ -1,9 +1,153 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<script>	
+function validate()
+{
+	var ten = document.getElementById("ten").value;
+	if(ten==='')
+	{
+		alert('Please Enter 10th Percentage');
+		document.getElementById('ten').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('ten').style.borderColor = "green";
+    }
+	var re = /^((3|[3-9]\d?)(\.\d{1,2})?|100(\.00?)?)$/;
+    if(!(ten).match(re))
+	{
+	  alert("invalid 10th percentage");
+	  return false;	
+    }
+	var twl = document.getElementById("twl").value;
+	if(twl==='')
+	{
+		alert('Please Enter 12th Percentage');
+		document.getElementById('twl').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('twl').style.borderColor = "green";
+    }
+    var re1 = /^((3|[3-9]\d?)(\.\d{1,2})?|100(\.00?)?)$/;
+    if(!(twl).match(re1))
+	{
+	  alert("invalid 12th percentage");
+	  return false;	
+    }
+	var ug = document.getElementById("ug").value;
+	if(ug==='')
+	{
+		alert('Please Enter Graduation Percentage');
+		document.getElementById('ug').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('ug').style.borderColor = "green";
+    }
+    var re2 = /^((3|[3-9]\d?)(\.\d{1,2})?|100(\.00?)?)$/;
+    if(!(ug).match(re2))
+	{
+	  alert("invalid Graduation percentage");
+	  return false;	
+    }
+	var pg = document.getElementById("pg").value;
+	if(pg==='')
+	{
+		alert('Please Enter Post Graduation Percentage');
+		document.getElementById('pg').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('pg').style.borderColor = "green";
+    }
+    var re3 = /^((3|[3-9]\d?)(\.\d{1,2})?|100(\.00?)?)$/;
+    if(!(pg).match(re3))
+	{
+	  alert("invalid Post Graduation percentage");
+	  return false;	
+    }
+	var ugproject = document.getElementById("ugproject").value;
+	if(ugproject==='')
+	{
+		alert('Please Enter Graduation Project Details');
+		document.getElementById('ugproject').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('ugproject').style.borderColor = "green";
+    }
+    var project=/^([A-Za-z])/;	
+	if(!(ugproject).match(project))
+	{
+	  alert("Please Enter Correct Graduation Project Name");
+	  return false;	
+    }
+
+	var pgproject1 = document.getElementById("pgproject1").value;
+	if(pgproject1==='')
+	{
+		alert('Please Enter Graduation Project Details');
+		document.getElementById('pgproject1').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('pgproject1').style.borderColor = "green";
+    }
+    var project1=/^([A-Za-z])/;	
+	if(!(pgproject1).match(project1))
+	{
+	  alert("Please Enter Correct Post Graduation first Project Name");
+	  return false;	
+    }
+    
+    
+    
+	var pgproject2 = document.getElementById("pgproject2").value;
+	if(pgproject2==='')
+	{
+		alert('Please Enter Post Graduation Project Details');
+		document.getElementById('pgproject2').style.borderColor = "red";
+        return false;
+    }else
+    {
+        document.getElementById('pgproject2').style.borderColor = "green";
+    }
+    var project2=/^([A-Za-z])/;	
+	if(!(pgproject2).match(project))
+	{
+	  alert("Please Enter Correct Post Graduation Project Name");
+	  return false;	
+    }
+
+    
+    
+    var uploadfile = document.getElementById('fileupload');
+	if(uploadfile.value == '')
+	{
+		alert('Please upload the attachment');
+		return false;
+	}
+	else
+	var fileName = uploadfile.value;
+	var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+	if(ext == "jpg" )
+	{
+		return true;
+	} 
+	else
+	{
+		alert("Upload jpg files only");
+		uploadfile.focus();
+		return false;
+	}
+}
+</script>
+	
 <div class="clearfix"></div>
 			<div class="banner two">
-				<h2>Broucher</h2>
+				<h2>Student Profile</h2>
 				<h6>connecting people...</h6>
 			</div>
 	<div class="generaltext">
@@ -13,7 +157,7 @@
 		<div class="col-md-6 contact-top">
 <font color="white" size="4">	
 
-Information For Brochure<br><br>
+Student Profile Information<br><br>
 <b>Name:
 {{member.name}}<br>
 Class:
@@ -35,49 +179,49 @@ Phone no:
 Enter Marks:</font><br><br>
 <div>
 <span> <font color="white" size="4">	
-10 <label>:</label></span>
+10th <label>:</label></span>
 									
-<input type= "text"  class="form-control" name = "tenth" required> 
+<input type= "text"  class="form-control" id="ten" name = "tenth"> 
 </font>
 </div>
 <div class="clearfix"> </div>
 <div>							
 <span> <font color="white" size="4">	
-12<label>:</label></font></span>
-		<input type= "text"  class="form-control" name = "twelth" required>
+12th<label>:</label></font></span>
+		<input type= "text"  class="form-control"  id="twl" name = "twelth">
 </div>		
 <div class="clearfix"> </div>
 <div>							
 <span> <font color="white" size="4">	
-BCS
+BCS/BCA
 </font><label>:</label></span>
-		<input type= "text" class="form-control" name = "grad" required>
+		<input type= "text" class="form-control" id="ug" name = "grad">
 </div>		
 <div class="clearfix"> </div>
 
 <div>							
 	<span><font color="white" size="4">	
 Mcs/MCA </font><label>:</label></span>
-	<input type= "text" class="form-control" name = "pgrad" required>
+	<input type= "text" class="form-control" id="pg" name = "pgrad">
 </div>
 
 <div>							
 <span> <font color="white" size="4">	
-Sem1 Project</font><label>:</label></span>
-		<input type= "text" class="form-control" name = "proj1" required>
+Graduation Project</font><label>:</label></span>
+		<input type= "text" class="form-control" id="ugproject" name = "proj1">
 </div>
 <div class="clearfix"> </div>
 							
 <div>
 <span> <font color="white" size="4">	
-Sem2 Project</font><label>:</label></span>
-		<input type= "text"  class="form-control" name = "proj2" required>
+Post Graducation Project(1)</font><label>:</label></span>
+		<input type= "text"  class="form-control" id="pgproject1" name = "proj2" >
 </div>		
 <div class="clearfix"> </div>
 <div>							
 <span> <font color="white" size="4">	
-Sem3 Project(only for MCA students)</font><label>:</label></span>
-	    <input type= "text" class="form-control" name = "proj3">
+Post Graducation Project(2)(only for MCA students)</font><label>:</label></span>
+	    <input type= "text" class="form-control" placeholder='if not any project simply Enter NA' id="pgproject2" name = "proj3">
 </div>
 <div class="clearfix"> </div>
 
@@ -86,12 +230,12 @@ Sem3 Project(only for MCA students)</font><label>:</label></span>
 <div>							
 <span>
 <font color="white" size="4">	
-File:</font></label></span><input type='file' name='filename' required><br><br>
+File:</font></label></span><input type='file' name='filename' id="fileupload"><br><br>
 </div>
 <div class="clearfix"> </div>
 							
 <input type="Reset" value="Reset">&nbsp;&nbsp;&nbsp;
-<input type="submit" value='Submit'></b>
+<input type="submit" value='Submit' onclick="return validate();"></b>
 </form>
 
 
